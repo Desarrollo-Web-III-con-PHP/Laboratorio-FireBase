@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Práctica Firebase: usuarios, signos zodiacales y seguridad de sesión.">
+  <title>Inicio | Zodiac Firebase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+  <script defer src="js/firebase-init.js"></script>
+  <script defer src="js/users/islogin.js"></script>
+</head><body>
+  <header class="site-header"><nav class="barra" aria-label="Navegación principal"><a class="marca" href="index.html">✦ Zodiac Firebase</a><div class="enlaces"><a href="index.html">Inicio</a><a href="lista.html">Listar signos</a><a href="agregar.html">Agregar signo</a><a href="registrar.html">Registrar usuario</a><a href="login.html">Acceder</a><button type="button" id="cerrarSesion">Cerrar sesión</button></div></nav></header>
+  <main class="contenido" hidden>
+    <section class="hero"><div><p class="etiqueta">ITI-621 · Tecnologías y Sistemas Web III</p><h1>Explora el zodiaco desde Firebase</h1><p>Una aplicación web para registrar usuarios, guardar información zodiacal, editar fichas y validar sesiones con reglas de seguridad.</p><div class="acciones"><a class="boton" href="lista.html">Ver signos</a><a class="boton boton-secundario" href="agregar.html">Registrar signo</a></div></div></section>
+    <div id="mensaje" role="alert" hidden></div>
+    <p class="aviso">Las páginas de signos cierran la sesión automáticamente tras 3 minutos sin actividad.</p>
+  </main><footer class="pie"><small>Práctica ITI-621 · Firebase Authentication · Cloud Firestore · Firebase Hosting</small></footer>
+</body></html>

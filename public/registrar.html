@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Práctica Firebase: usuarios, signos zodiacales y seguridad de sesión.">
+  <title>Registrar usuario | Zodiac Firebase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+  <script defer src="js/firebase-init.js"></script>
+  <script defer src="js/users/signup.js"></script>
+</head><body>
+  <header class="site-header"><nav class="barra" aria-label="Navegación principal"><a class="marca" href="index.html">✦ Zodiac Firebase</a><div class="enlaces"><a href="index.html">Inicio</a><a href="lista.html">Listar signos</a><a href="agregar.html">Agregar signo</a><a href="registrar.html">Registrar usuario</a><a href="login.html">Acceder</a></div></nav></header>
+  <main class="contenido" >
+    <div class="intro"><p class="etiqueta">Usuarios</p><h1>Crear una cuenta</h1><p>Las fechas se registran automáticamente mediante marcas de tiempo del servidor de Firestore; no se pueden modificar manualmente.</p></div>
+    <div id="mensaje" role="alert" hidden></div>
+    <form id="formRegistro" class="panel formulario">
+      <div class="form-grid">
+        <div class="campo ancho"><label for="txtNombre">Nombre completo</label><input id="txtNombre" name="nombre" type="text" maxlength="100" required autocomplete="name"></div>
+        <div class="campo"><label for="txtEmail">Correo electrónico</label><input id="txtEmail" name="email" type="email" maxlength="254" required autocomplete="email"></div>
+        <div class="campo"><label for="txtContra">Contraseña</label><input id="txtContra" name="password" type="password" minlength="6" required autocomplete="new-password"></div>
+        <div class="campo"><label for="fechaCreacion">Fecha de creación</label><input id="fechaCreacion" type="text" readonly aria-readonly="true"></div>
+        <div class="campo"><label for="fechaUltAcceso">Fecha de último acceso</label><input id="fechaUltAcceso" type="text" readonly aria-readonly="true"></div>
+      </div>
+      <div class="acciones-form"><button id="btnInsUser" class="boton" type="submit">Registrar usuario</button><a class="boton boton-secundario" href="login.html">Ya tengo cuenta</a></div>
+    </form>
+  </main><footer class="pie"><small>Práctica ITI-621 · Firebase Authentication · Cloud Firestore · Firebase Hosting</small></footer>
+</body></html>

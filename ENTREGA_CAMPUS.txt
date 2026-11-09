@@ -1,0 +1,22 @@
+UNIVERSIDAD TÉCNICA NACIONAL
+ITI-621 — Tecnologías y Sistemas Web III
+PRÁCTICA FIREBASE
+
+Estudiante: [NOMBRE COMPLETO]
+
+Repositorio del código fuente en GitHub:
+[PEGAR AQUÍ URL REAL DEL REPOSITORIO]
+
+Dominio público de la aplicación web en Firebase Hosting:
+https://labfirebase-8210f.web.app
+
+Cumplimiento de requisitos:
+1. Registro de usuario con fechas de creación y último acceso.
+2. Signos con elemento, astro celeste y piedra preciosa.
+3. Tarjetas con los nuevos datos.
+4. Edición desde cada tarjeta en lista.html.
+5. Cierre automático de sesión tras 3 minutos sin actividad en páginas zodiacales.
+
+Nota: Verificar que el profesor puede abrir el repositorio y el dominio antes de entregar.
+
+Modalidad: plan Spark, imágenes estáticas publicadas en Firebase Hosting; sin Cloud Storage ni facturación.

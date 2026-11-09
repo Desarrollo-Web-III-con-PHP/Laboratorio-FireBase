@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Práctica Firebase: usuarios, signos zodiacales y seguridad de sesión.">
+  <title>Iniciar sesión | Zodiac Firebase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+  <script defer src="js/firebase-init.js"></script>
+  <script defer src="js/users/login.js"></script>
+</head><body>
+  <header class="site-header"><nav class="barra" aria-label="Navegación principal"><a class="marca" href="index.html">✦ Zodiac Firebase</a><div class="enlaces"><a href="index.html">Inicio</a><a href="lista.html">Listar signos</a><a href="agregar.html">Agregar signo</a><a href="registrar.html">Registrar usuario</a><a href="login.html">Acceder</a></div></nav></header>
+  <main class="contenido" >
+    <div class="intro"><p class="etiqueta">Autenticación</p><h1>Iniciar sesión</h1><p>El último acceso se actualiza en Firestore al iniciar sesión correctamente.</p></div>
+    <div id="mensaje" role="alert" hidden></div>
+    <form id="formLogin" class="panel formulario"><div class="form-grid">
+      <div class="campo"><label for="txtEmail">Correo electrónico</label><input id="txtEmail" type="email" required autocomplete="username"></div>
+      <div class="campo"><label for="txtContra">Contraseña</label><input id="txtContra" type="password" required autocomplete="current-password"></div>
+    </div><div class="acciones-form"><button id="btnLogin" class="boton" type="submit">Ingresar</button><a class="boton boton-secundario" href="registrar.html">Crear cuenta</a></div></form>
+  </main><footer class="pie"><small>Práctica ITI-621 · Firebase Authentication · Cloud Firestore · Firebase Hosting</small></footer>
+</body></html>

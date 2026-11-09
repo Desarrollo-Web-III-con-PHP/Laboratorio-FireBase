@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function autenticado() {
+      return request.auth != null;
+    }
+
+    function usuarioValido(d) {
+      return d.keys().hasAll(['idemp', 'usuario', 'email', 'creadoEn', 'ultAcceso'])
+        && d.keys().hasOnly(['idemp', 'usuario', 'email', 'creadoEn', 'ultAcceso'])
+        && d.idemp is string
+        && d.usuario is string && d.usuario.size() > 0 && d.usuario.size() <= 100
+        && d.email is string && d.email.size() > 3 && d.email.size() <= 254
+        && d.creadoEn is timestamp && d.ultAcceso is timestamp;
+    }
+
+    function zodiacoValido(d) {
+      return d.keys().hasAll(['posic', 'signo', 'rango', 'url', 'elemento', 'astro', 'piedra'])
+        && d.keys().hasOnly(['posic', 'signo', 'rango', 'url', 'elemento', 'astro', 'piedra'])
+        && d.posic is int && d.posic >= 1 && d.posic <= 12
+        && d.signo is string && d.signo.size() > 0 && d.signo.size() <= 40
+        && d.rango is string && d.rango.size() > 0 && d.rango.size() <= 80
+        && d.url is string && d.url.size() > 0 && d.url.size() <= 2048
+        && d.elemento in ['Fuego', 'Tierra', 'Aire', 'Agua']
+        && d.astro is string && d.astro.size() > 0 && d.astro.size() <= 80
+        && d.piedra is string && d.piedra.size() > 0 && d.piedra.size() <= 80;
+    }
+
+    match /datosUsuarios/{documentoId} {
+      // La lista se debe consultar con where('idemp', '==', auth.uid).
+      allow read: if autenticado() && resource.data.idemp == request.auth.uid;
+      allow create: if autenticado()
+        && usuarioValido(request.resource.data)
+        && request.resource.data.idemp == request.auth.uid
+        && request.resource.data.email == request.auth.token.email;
+      // Solo fechas. La fecha de creación solo puede añadirse a registros heredados.
+      allow update: if autenticado()
+        && resource.data.idemp == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['ultAcceso', 'creadoEn'])
+        && request.resource.data.ultAcceso is timestamp
+        && request.resource.data.creadoEn is timestamp
+        && (!resource.data.keys().hasAny(['creadoEn'])
+            || request.resource.data.creadoEn == resource.data.creadoEn);
+      allow delete: if false;
+    }
+
+    match /datosZodiaco/{documentoId} {
+      allow read: if autenticado();
+      allow create, update: if autenticado() && zodiacoValido(request.resource.data);
+      allow delete: if false;
+    }
+  }
+}

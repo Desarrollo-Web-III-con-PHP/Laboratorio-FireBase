@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Práctica Firebase: usuarios, signos zodiacales y seguridad de sesión.">
+  <title>Editar signo | Zodiac Firebase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+  <script defer src="js/firebase-init.js"></script>
+  <script defer src="js/users/islogin.js"></script>
+  <script defer src="js/users/inactividad.js"></script>
+  <script defer src="js/zodiac/catalogo.js"></script>
+  <script defer src="js/zodiac/utilidades.js"></script>
+  <script defer src="js/zodiac/editarsigno.js"></script>
+</head><body>
+  <header class="site-header"><nav class="barra" aria-label="Navegación principal"><a class="marca" href="index.html">✦ Zodiac Firebase</a><div class="enlaces"><a href="index.html">Inicio</a><a href="lista.html">Listar signos</a><a href="agregar.html">Agregar signo</a><a href="registrar.html">Registrar usuario</a><a href="login.html">Acceder</a><button type="button" id="cerrarSesion">Cerrar sesión</button></div></nav></header>
+  <main class="contenido" hidden>
+    <div class="intro"><p class="etiqueta">Catálogo zodiacal</p><h1>Editar signo zodiacal</h1><p>El formulario carga el documento seleccionado desde Firestore. Puedes conservar su imagen o elegir una de las 12 imágenes incluidas en Firebase Hosting.</p><a href="lista.html">Volver a la lista</a></div>
+    <div id="mensaje" role="alert" hidden></div>
+    <form id="formSigno" class="panel formulario" hidden><div class="form-grid">
+      <div class="campo"><label for="txtSigno">Signo</label><input id="txtSigno" type="text" maxlength="40" required></div>
+      <div class="campo"><label for="txtPosic">Posición</label><input id="txtPosic" type="number" min="1" max="12" required></div>
+      <div class="campo"><label for="txtRango">Rango de fechas</label><input id="txtRango" type="text" maxlength="80" required></div>
+      <div class="campo"><label for="txtElemento">Elemento</label><select id="txtElemento" required><option value="">Seleccionar...</option><option>Fuego</option><option>Tierra</option><option>Aire</option><option>Agua</option></select></div>
+      <div class="campo"><label for="txtAstro">Astro celeste</label><input id="txtAstro" type="text" maxlength="80" required></div>
+      <div class="campo"><label for="txtPiedra">Piedra preciosa</label><input id="txtPiedra" type="text" maxlength="80" required></div>
+      <div class="campo ancho"><label for="selImagen">Imagen del catálogo (opcional)</label><select id="selImagen"><option value="">Conservar la imagen actual</option></select><small>Selecciona otra imagen del catálogo o conserva la imagen anterior. No se suben archivos.</small><img class="preview" id="vistaPrevia" alt="Vista previa del signo" hidden></div>
+    </div><div class="acciones-form"><button class="boton" id="btnActualizar" type="submit">Actualizar signo</button><a class="boton boton-secundario" href="lista.html">Cancelar</a></div></form>
+  </main><footer class="pie"><small>Práctica ITI-621 · Firebase Authentication · Cloud Firestore · Firebase Hosting</small></footer>
+</body></html>

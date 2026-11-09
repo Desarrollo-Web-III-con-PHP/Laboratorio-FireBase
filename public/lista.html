@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Práctica Firebase: usuarios, signos zodiacales y seguridad de sesión.">
+  <title>Signos del zodiaco | Zodiac Firebase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore-compat.js"></script>
+  <script defer src="js/firebase-init.js"></script>
+  <script defer src="js/users/islogin.js"></script>
+  <script defer src="js/users/inactividad.js"></script>
+  <script defer src="js/zodiac/utilidades.js"></script>
+  <script defer src="js/zodiac/lstzodiaco.js"></script>
+</head><body>
+  <header class="site-header"><nav class="barra" aria-label="Navegación principal"><a class="marca" href="index.html">✦ Zodiac Firebase</a><div class="enlaces"><a href="index.html">Inicio</a><a href="lista.html">Listar signos</a><a href="agregar.html">Agregar signo</a><a href="registrar.html">Registrar usuario</a><a href="login.html">Acceder</a><button type="button" id="cerrarSesion">Cerrar sesión</button></div></nav></header>
+  <main class="contenido" hidden>
+    <div class="intro"><p class="etiqueta">Catálogo zodiacal</p><h1>Signos zodiacales</h1><p>Selecciona una tarjeta para consultar y modificar los datos del signo correspondiente.</p><a class="boton" href="agregar.html">Agregar signo</a></div>
+    <div id="mensaje" role="alert" hidden></div>
+    <section id="tabla" class="tarjetas" aria-label="Lista de signos zodiacales"><p>Cargando signos...</p></section>
+  </main><footer class="pie"><small>Práctica ITI-621 · Firebase Authentication · Cloud Firestore · Firebase Hosting</small></footer>
+</body></html>
