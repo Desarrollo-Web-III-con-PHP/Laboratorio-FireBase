@@ -5,3 +5,8 @@ node_modules/
 .env
 .env.*
 !.env.example
+
+# Documentacion local
+README.md
+CAMBIOS_PLAN_SPARK.md
+ENTREGA_CAMPUS.txt
